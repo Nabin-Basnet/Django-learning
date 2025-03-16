@@ -3,6 +3,6 @@ from myapp.views import home,about
 # from django.contrib import admin
 
 urlpatterns=[
-    path("home",home),
-    path("",about)
+    path("",home),
+    path("about/",about),
 ]
