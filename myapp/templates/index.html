@@ -6,7 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+   
     <h1>hello every one</h1>
     <h2>my name is nabin basnet</h2>
+    <form action="" method="post">
+    {% csrf_token %}
+        <label for="name"  id="name">name:</label>
+        <input type="text" name="name" id="name"/>
+        <button type="submit">add</button>
+    </form>
+    {% for person in p %}
+    <p>{{perosn.name}}</p>
+    {% endfor%}
 </body>
 </html>
