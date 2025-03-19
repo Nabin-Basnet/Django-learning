@@ -18,5 +18,6 @@ def about(request):
     p=person.objects.all()
     return render(request,"about.html",{'p':p})
 
+
 # def about(request):
 #     return render(request,"about.html")

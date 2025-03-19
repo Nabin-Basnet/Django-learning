@@ -8,13 +8,13 @@
 <body>
     <h1>this is about</h1>
     {% for x in p %}
-    <h1>data of persons</h1>
+    <h1>data of persons {{x.id}}</h1>
     <p>name:{{x.name}}</p>
     <p>address:{{x.address}}</p>
     <p>age:{{x.age}}</p>
     <p>discription:{{x.discription}}</p>
     {% if x.image %}
-    <img src="{{ x.image.url }}" alt="{{x.name}}"  width="100">
+    <img src="{{ x.image.url }}" alt="{{x.name}}"  width="1000">
     
     {% endif %}
     {% endfor %}
