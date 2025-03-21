@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import request
 from .models import person
 # Create your views here.
@@ -17,6 +17,11 @@ def home(request):
 def about(request):
     p=person.objects.all()
     return render(request,"about.html",{'p':p})
+
+def delete(request,p_id):
+    p=person.objects.get(id=p_id)
+    p.delete()
+    return redirect(about)
 
 
 # def about(request):
