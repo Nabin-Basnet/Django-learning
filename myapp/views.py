@@ -24,5 +24,19 @@ def delete(request,p_id):
     return redirect(about)
 
 
-# def about(request):
-#     return render(request,"about.html")
+def edit(request,p_id):
+    p=get_object_or_404(person,id=p_id)
+    if request.method=="POST":
+        name=request.POST["name"]
+        age=request.POST["age"]   
+        address=request.POST["address"]   
+        discription=request.POST["discription"]
+        image=request.FILES["image"]  
+        p.name=name
+        p.age=age
+        p.address=address
+        p.discription=discription
+        p.image=image
+        p.save()
+        return redirect(about)
+    return render(request,"index.html")

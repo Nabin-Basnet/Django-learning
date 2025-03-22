@@ -3,21 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Person List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .person-container {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: left;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .delete-btn,.edit-btn {
+            display: inline-block;
+            background: red;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .delete-btn:hover {
+            background: darkred;
+        }
+    </style>
 </head>
 <body>
-    <h1>this is about</h1>
+    <h1>Person List</h1>
     {% for x in p %}
-    <h1>data of persons {{x.id}}</h1>
-    <p>name:{{x.name}}</p>
-    <p>address:{{x.address}}</p>
-    <p>age:{{x.age}}</p>
-    <p>discription:{{x.discription}}</p>
-    {% if x.image %}
-    <img src="{{ x.image.url }}" alt="{{x.name}}"  width="1000">
-    
-    {% endif %}
-    <a href="/delete/{{x.id}}">delete</a>
+    <div class="person-container">
+        <h2>Person {{x.id}}</h2>
+        <p><strong>Name:</strong> {{x.name}}</p>
+        <p><strong>Address:</strong> {{x.address}}</p>
+        <p><strong>Age:</strong> {{x.age}}</p>
+        <p><strong>Description:</strong> {{x.discription}}</p>
+        {% if x.image %}
+        <img src="{{ x.image.url }}" alt="{{x.name}}">
+        {% endif %}
+        <br>
+        <a href="/delete/{{x.id}}" class="delete-btn">Delete</a>
+        <a href="/edit/{{x.id}}" class="edit-btn">Edit</a>
+    </div>
     {% endfor %}
 </body>
 </html>
