@@ -40,3 +40,12 @@ def edit(request,p_id):
         p.save()
         return redirect(about)
     return render(request,"index.html")
+
+def landing(request):
+    return render(request,"home.html")
+
+def login(request):
+    return render(request,"login.html")
+
+def signup(request):
+    return render(request,"signup.html")
