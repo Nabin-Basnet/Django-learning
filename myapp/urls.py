@@ -9,5 +9,5 @@ urlpatterns=[
     path("delete/<int:p_id>",delete,name="delete"),
     path("edit/<int:p_id>",edit,name="edit"),
      path('login/', login, name='login'),  # Custom login page
-    path('register/', signup, name='signup'),  # Custom signup page
+    path('signup/', signup, name='signup'),  # Custom signup page
 ]

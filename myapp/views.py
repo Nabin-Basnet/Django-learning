@@ -1,6 +1,8 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
 from django.http import request
 from .models import person
+from django.contrib import messages
+from django.contrib.auth.models import User
 # Create your views here.
 def home(request):
     if request.method=='POST':
@@ -48,4 +50,13 @@ def login(request):
     return render(request,"login.html")
 
 def signup(request):
+    if request.method=="POST":
+        username=request.POST['username']
+        email=request.POST['email']
+        password=request.POST['password']
+        confirm_password=request.POST['confirm_password']
+        myuser=User.objects.create_user(username,email,password)
+        myuser.save()
+        messages.success(request, " Your iCoder has been successfully created")
+        return HttpResponse("user created")
     return render(request,"signup.html")
