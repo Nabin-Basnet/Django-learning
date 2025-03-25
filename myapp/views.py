@@ -49,14 +49,34 @@ def landing(request):
 def login(request):
     return render(request,"login.html")
 
+
 def signup(request):
-    if request.method=="POST":
-        username=request.POST['username']
-        email=request.POST['email']
-        password=request.POST['password']
-        confirm_password=request.POST['confirm_password']
-        myuser=User.objects.create_user(username,email,password)
+    if request.method == "POST":
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+
+        # Check if passwords match
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match")
+            return render(request, "signup.html")
+
+        # Check if username already exists
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already taken")
+            return render(request, "signup.html")
+
+        # Check if email already exists
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email is already registered")
+            return render(request, "signup.html")
+
+        # Create the user
+        myuser = User.objects.create_user(username=username, email=email, password=password)
         myuser.save()
-        messages.success(request, " Your iCoder has been successfully created")
-        return HttpResponse("user created")
-    return render(request,"signup.html")
+
+        messages.success(request, "Your account has been successfully created!")
+        return redirect('login')  # Redirect to login page after successful signup
+
+    return render(request, "signup.html")
