@@ -3,6 +3,7 @@ from django.http import request
 from .models import person
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login
 # Create your views here.
 def home(request):
     if request.method=='POST':
@@ -46,9 +47,6 @@ def edit(request,p_id):
 def landing(request):
     return render(request,"home.html")
 
-def login(request):
-    return render(request,"login.html")
-
 
 def signup(request):
     if request.method == "POST":
@@ -77,6 +75,30 @@ def signup(request):
         myuser.save()
 
         messages.success(request, "Your account has been successfully created!")
-        return redirect('login')  # Redirect to login page after successful signup
+        return redirect('login_view')  # Redirect to login page after successful signup
 
     return render(request, "signup.html")
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+
+        # Check if fields are empty
+        if not username or not password:
+            messages.error(request, "All fields are required!")
+            return redirect("login_view")
+
+        # Authenticate user
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Login successful!")
+            return redirect(about)  # Change this to your dashboard or homepage
+        else:
+            messages.error(request, "Invalid username or password!")
+            return redirect("login_view")
+
+    return render(request, "login.html")
