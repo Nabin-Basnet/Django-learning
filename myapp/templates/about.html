@@ -11,9 +11,25 @@
             margin: 0;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
         h1 {
             color: #333;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .logout-btn:hover {
+            background: #0056b3;
         }
         .person-container {
             background: white;
@@ -34,7 +50,7 @@
             border-radius: 5px;
             margin-top: 10px;
         }
-        .delete-btn,.edit-btn {
+        .delete-btn, .edit-btn {
             display: inline-block;
             background: red;
             color: white;
@@ -48,10 +64,20 @@
         .delete-btn:hover {
             background: darkred;
         }
+        .edit-btn {
+            background: #28a745;
+        }
+        .edit-btn:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
     <h1>Person List</h1>
+
+    <!-- Logout Button -->
+    <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+
     {% for x in p %}
     <div class="person-container">
         <h2>Person {{x.id}}</h2>
