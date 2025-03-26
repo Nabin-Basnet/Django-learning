@@ -3,7 +3,7 @@ from django.http import request
 from .models import person
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def home(request):
     if request.method=='POST':
@@ -102,3 +102,10 @@ def login_view(request):
             return redirect("login_view")
 
     return render(request, "login.html")
+
+
+    
+def user_logout(request):
+    logout(request)  # Logs out the user
+    messages.success(request, "You have been logged out successfully!")
+    return redirect('landing')

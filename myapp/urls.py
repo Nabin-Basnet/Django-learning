@@ -1,5 +1,5 @@
 from django.urls import path
-from myapp.views import home,about,delete,edit,landing,login_view,signup
+from myapp.views import home,about,delete,edit,landing,login_view,signup,user_logout
 # from django.contrib import admin
 
 urlpatterns=[
@@ -8,6 +8,7 @@ urlpatterns=[
     path("about/",about),
     path("delete/<int:p_id>",delete,name="delete"),
     path("edit/<int:p_id>",edit,name="edit"),
-     path('login/', login_view, name='login_view'),  # Custom login page
+    path('login/', login_view, name='login_view'),  # Custom login page
     path('signup/', signup, name='signup'),  # Custom signup page
+    path('user_logout/', user_logout, name='user_logout'),
 ]
