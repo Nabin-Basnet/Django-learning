@@ -109,3 +109,11 @@ def user_logout(request):
     logout(request)  # Logs out the user
     messages.success(request, "You have been logged out successfully!")
     return redirect('landing')
+
+def index(request):
+    name="nabin"
+    mydict={
+        'name':name
+    }
+    return 
+

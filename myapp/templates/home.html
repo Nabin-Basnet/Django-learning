@@ -1,114 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Django App</title>
-    <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+{% extends 'navbar.html' %}
+{% load static %}
 
-        body {
-            background-color: #f4f4f4;
-            text-align: center;
-        }
+{% block content %}
 
-        /* Navigation Bar */
-        .navbar {
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar h1 {
-            margin-left: 20px;
-            font-size: 24px;
-        }
-
-        .nav-links {
-            margin-right: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            margin: 0 10px;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
-
-        .nav-links a:hover {
-            background-color: #0056b3;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 80vh;
-        }
-
-        .hero h2 {
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 18px;
-            text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            border-radius: 5px;
-            margin: 10px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Navigation Bar -->
+<div>
     <div class="navbar">
         <h1>Django App</h1>
         <div class="nav-links">
@@ -129,6 +24,18 @@
     <div class="footer">
         <p>&copy; 2025 Django App. All Rights Reserved.</p>
     </div>
+    <!-- <div>
+        <div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvasDark" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <p>Place offcanvas content here.</p>
+            </div>
+          </div>
+    </div>     -->
 
-</body>
-</html>
+</div>
+
+{% endblock %}

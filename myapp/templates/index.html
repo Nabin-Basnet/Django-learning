@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+<div>
+    <h1>Hello every one</h1>
+    <h2>This is basic html form which take data from users and store in database</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        
+
+</div>
+
+{% endblock %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,6 +75,8 @@ button:hover {
 </head>
 <body>
    
+    
+   
     <h1>Hello every one</h1>
     <h2>This is basic html form which take data from users and store in database</h2>
     <form action="" method="post" enctype="multipart/form-data">
@@ -80,4 +96,4 @@ button:hover {
         <button type="submit">Add</button>
     </form>
 </body>
-</html>
+</html> -->
