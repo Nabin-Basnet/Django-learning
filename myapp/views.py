@@ -117,3 +117,5 @@ def index(request):
     }
     return 
 
+def theam(request):
+    return render(request,"portfolio.html")
