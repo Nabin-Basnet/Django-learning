@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Person List</title>
-    <style>
+{% extends './components/navbar.html' %}
+
+ {% block style %}
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -70,9 +66,9 @@
         .edit-btn:hover {
             background: #218838;
         }
-    </style>
-</head>
-<body>
+{% endblock %}
+{% block content %}  
+<div>
     <h1>Person List</h1>
 
     <!-- Logout Button -->
@@ -93,5 +89,7 @@
         <a href="/edit/{{x.id}}" class="edit-btn">Edit</a>
     </div>
     {% endfor %}
-</body>
-</html>
+</div>
+{% endblock %}
+    
+
