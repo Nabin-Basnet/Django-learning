@@ -1,0 +1,36 @@
+# === Python / Django ===
+*.pyc
+__pycache__/
+db.sqlite3
+*.sqlite3
+*.log
+*.pot
+*.py[cod]
+*.so
+
+# Django secret files
+.env
+.env.*
+
+# VSCode settings
+.vscode/
+
+# Django migrations
+*/migrations/
+!*/migrations/__init__.py
+
+# Static & media files (if collected)
+staticfiles/
+media/
+
+# === Node / Tailwind ===
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Tailwind output (you can include the output if needed)
+static/src/styles.css
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
