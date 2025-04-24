@@ -4,11 +4,23 @@
 {% block content %}
 
 <div>
-    {% load static %}
+    
     <!-- <img src="{% static 'images/shiva.png' %}" alt="shiva"> -->
 
 
     <!-- Hero Section -->
+     {% if success %}
+     <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+      <p class="font-bold">{{successmsg}}</p>
+      <p class="text-sm">Some additional text to explain said message.</p>
+    </div>
+
+     {% endif %}
+     
+
+
+
+
      <form action="" method="POST">
       {% csrf_token %}
         {{form.as_p}}

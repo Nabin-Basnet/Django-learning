@@ -112,8 +112,15 @@ def login_form(request):
         if form.is_valid:
             email=request.POST["email"]
             password=request.POST['password']
+            myDict={
+                'form':form 
+            }
+            myDict["success"]=True
+            myDict["successmsg"]="form submitted sucessfully"
+            
             print(email,password)
-            return HttpResponse(email+"  " +password)
+
+            return render(request,"home.html", context=myDict)
 
     elif request.method == "GET":
         LoginForm = Login_forms()
