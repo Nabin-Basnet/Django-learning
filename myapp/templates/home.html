@@ -9,9 +9,17 @@
 
 
     <!-- Hero Section -->
+     {% if error %}
+      
+     <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3" role="alert">
+      <p class="font-bold">{{errors}}</p>
+      <p class="text-sm">Some additional text to explain said message.</p>
+    </div>
+
+     {% endif %}
      {% if success %}
      <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-      <p class="font-bold">{{successmsg}}</p>
+      <p class="font-bold">{{successMsg}}</p>
       <p class="text-sm">Some additional text to explain said message.</p>
     </div>
 

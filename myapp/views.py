@@ -113,15 +113,35 @@ def login_form(request):
             email=request.POST["email"]
             password=request.POST['password']
             myDict={
-                'form':form 
-            }
-            myDict["success"]=True
-            myDict["successmsg"]="form submitted sucessfully"
+                    'form':form 
+                }
             
-            print(email,password)
+            errorflag=False
+            Error=[]
+            import re   #regular expression import
+            regex='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'  #it is variable it an be put any
+            
+            if not re.search(regex,email):
+                errorflag=True
+                errormsg="email is not valid"
+                Error.append(errormsg)
+                
+            elif password != password.lower():
+                errorflag=True
+                errormsg="password should be in lowercase"
+                Error.append(errormsg)
+
+            else:
+                myDict['success']=True
+                myDict['successMsg']="form successfully submited"
+            
+            myDict['error']=errorflag
+            myDict["errors"]=Error
+            #myDict['successMsg']="form successfully submited"
 
             return render(request,"home.html", context=myDict)
-
+        
+       
     elif request.method == "GET":
         LoginForm = Login_forms()
         loginDict = {"form": LoginForm}
